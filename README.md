@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Hazina Application
+       
+## Ruby on rails backend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>>The project is Hazina Api Rails backend.
+>>The project requrements were as follows:-
+    
+    >Ruby 2.7.4
+    >NodeJS (v16), and npm
+    >Postgresql
+    >Deploying
 
-## Available Scripts
+>> To run the project in your browser you can fork and clone and run the following commands:-
 
-In the project directory, you can run:
+        $ bundle install
+        $ rails db:migrate db:seed
+        $ rails s: run the backend on http://localhost:3000      
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### GETTING STARTED WITH THE PROJECT
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ <>INSTALLATIONS
 
-### `npm test`
+ First you need to have rails and bundler intalled globally in your machine.
+   Simply by installing the latest version.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ #### Installation
 
-### `npm run build`
+     >Run the following commands:
+       $ gem install bundler
+       $ gem install rails
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ #### Installation of node.js
+   
+     run:-
+     $nvm install 16
+     $nvm use 16
+     $nvm alias default 16
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+     Then verify the node version using:
+      $node -v 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ##### Install Postgresql
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ Deploying requires that you use PostgreSQL for your database instead of SQLite. PostgreSQL (or just Postgres for short) is an advanced database management system with more features than SQLite. If you don't already have it installed, you'll need to set it up.  
+    > Run the following commands from your Ubuntu terminal: 
+          $ sudo apt update
+          $ sudo apt install postgresql postgresql-contrib libpq-dev
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+     > Then confirm that Postgres was installed successfully:  
+           $psql --version   
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+           >To start Posgresql run the following the command:
+                $sudo service postgresql start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ You'd need to create a Postgres user with that same name as the same name with your operating system.
+     To do so, run this command to open the Postgres CLI:
+        $sudo -u postgres -i
 
-## Learn More
+ From the Postgres CLI, run this command (replacing "name" with your username):  
+        $createuser -sr name
+        >Then enter control + d or type logout to exit.  
+        
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## USING THE PROJECT
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Simply run 
+  $rails s: then http://localhost:3000 in your browser
+   to specify the what you want to access:
+   you can run:-
+   http://localhost:3000/hazina - to get the whole arts data
+   http://localhost:3000/hazina-api/1 - to get the art with an id of 1
 
-### Code Splitting
+#### Resources:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ For more resouces you can visit the link below:
+ https://rubyonrails.org
 
-### Analyzing the Bundle Size
+>>>>>>>> React frontend (client)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The react project is to diplay the data from the backend  by fetching.
+For this to occur ensure the rails server is running for it to display data to the frontend part.
+   
+   Run this commands on separate terminal:-
+        
+    > rails s: run the backend on http://localhost:3000
+    > npm start --prefix client: run the frontend on http://localhost:4000
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### DEPLOYMENT FRONTEND
 
-### Advanced Configuration
+I created a new repository on the client(frontend) folder for deployment;
+    >>> https://hazina.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ This is the deployed url of the repository:-
+        https://github.com/Beulah-Matt/hazina-project-frontend
 
-### Deployment
+        The rails server must be running in order to see the fetched data on the screen.
+          >> rails s
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ ### DEPLOYMENT BACKEND
 
-### `npm run build` fails to minify
+ This is my deployed backend url
+    >>> https://github.com/Beulah-Matt/Hazina
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
