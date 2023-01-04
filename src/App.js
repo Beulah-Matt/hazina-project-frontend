@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Signup from "./components/Signup";
-import Signin from "./components/Signin";
-import Dashboard from "./components/Dashboard";
+import Signup from "./Components/Signup";
+import Signin from "./Components/Signin";
+import Dashboard from "./Components/Dashboard";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
 
