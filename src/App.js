@@ -5,6 +5,7 @@ import Signin from "./Components/Signin";
 import Dashboard from "./Components/Dashboard";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
+import Stats from "./Components/Stats";
 
 const App = () => {
   // const [currentUser, setCurrentUser] = useState(null);
@@ -43,7 +44,7 @@ const App = () => {
       
         <Navbar />
         <Hero />
-      
+        <Stats />
       <Routes>
         {!currentUser ? (
           <>
@@ -58,7 +59,7 @@ const App = () => {
           </>
         )}
         <Route
-          path="*"
+          path="/signup"
           element={<Signup setCurrentUser={setCurrentUser} />}
         ></Route>
       </Routes>
