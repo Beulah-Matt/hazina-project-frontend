@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Judy Young",
+      "email": "judy@gmail.com",
+      "password": "judy123",
+      "phone_no": 25471234567,
+      "photo_url": "https://images.squarespace-cdn.com/content/v1/5e0f21b80d7a60259e9a7f32/1594725827586-WCIWG2Z775E169CV7Q0X/char_5-01.jpg?format=300w",
+      "location": "Imara Daima"
+    },
+    {
+      "id": 2,
+      "name": "David Beck",
+      "email": "david@gmail.com",
+      "password": "david123",
+      "phone_no": 25471254784,
+      "photo_url": "https://images.squarespace-cdn.com/content/v1/5e0f21b80d7a60259e9a7f32/1594725487465-IBTRS6N6WNL48QIG3HIF/char_3-01.jpg?format=300w",
+      "location": "Upperhill"
+    },
+    {
+      "name": "Beulah Mathenge",
+      "email": "beulahdaizy@gmail.com",
+      "password": "beulah123",
+      "phone_no": "254765432345",
+      "photo_url": "https://images.squarespace-cdn.com/content/v1/5e0f21b80d7a60259e9a7f32/1594726056343-PWN73FZTHEP4YUZHEQ2R/char_15-01.jpg?format=500w",
+      "location": "Westlands",
+      "id": 3
+    }
+  ],
+  "stats": [
+    {
+      "id": 1,
+      "title": "Happy Clients",
+      "value": "1.4k"
+    },
+    {
+      "id": 2,
+      "title": "Available Units",
+      "value": "94"
+    },
+    {
+      "id": 3,
+      "title": "Locations",
+      "value": "25"
+    }
+  ]
+}
