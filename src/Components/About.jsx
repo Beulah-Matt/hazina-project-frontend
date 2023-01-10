@@ -9,7 +9,7 @@ const About = () => {
           <h3 className="text-2xl sm:text-5xl font-serif font-semibold text-center text-white">
             About Us
           </h3>
-          <p classname="py-4 max-w-md">
+          <p className="py-4">
             Hazina Storage will provide a convenient, safe, and secure self
             storage solution for anyone in Nairobi or Mombasa area who needs to store their
             belongings. We will ensure that every storage need of the customer
@@ -18,7 +18,7 @@ const About = () => {
             company in the area.
           </p>
           <br></br>
-          <p classname="py-4 max-w-md">
+          <p className="py-4 max-w-md">
             The following are the self storage solutions that Hazina Storage
             will provide:
           </p>
