@@ -44,17 +44,17 @@
   background-color: rgba(181, 250, 181, 0.5);
 }
 
-.new-art-form form {
+.new-storage-form form {
   display: flex;
   justify-content: center;
 }
 
-.new-art-form input {
+.new-storage-form input {
   margin-right: 2rem;
   flex: 1;
 }
 
-.new-art-form button {
+.new-storage-form button {
   width: 150px;
 }
 

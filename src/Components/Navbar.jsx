@@ -13,7 +13,7 @@ function Navbar() {
                 {/* <Link to="/"> */}
                   {/* <img className="block h-6 md:h-9 w-auto" src={logo} alt="OSP home page" /> */}
                 {/* </Link> */}
-                <h1 className='mr-4 text-3xl text-white font-bold sm:text-4xl pl-2'>Hazina</h1>
+                <h1 className='mr-4 text-3xl text-custom-gold-color font-bold sm:text-4xl pl-2'>Hazina</h1>
               </div>
               <div className='hidden md:flex pr-4 text-white'>
                 <ul className='hidden md:flex'>

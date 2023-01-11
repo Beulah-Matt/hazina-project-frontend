@@ -5,6 +5,7 @@ import Signin from "./Components/Signin";
 import Dashboard from "./Components/Dashboard";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
+import StoragePage from "./Components/StoragePage";
 import Stats from "./Components/Stats";
 import About from "./Components/About";
 
@@ -39,14 +40,13 @@ const App = () => {
     });
   }, []);
 
-
   return (
-    <div>
-      
+    <div>     
         <Navbar />
         <Hero />
         <Stats />
         <About />
+        <StoragePage />
       <Routes>
         {!currentUser ? (
           <>
