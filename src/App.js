@@ -6,6 +6,7 @@ import Dashboard from "./Components/Dashboard";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
 import ContactSection from "./Components/ContactSection";
+import Footer from "./Components/Footer"
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
         <Navbar />
         <Hero />
         <ContactSection/>
+        <Footer/>
       
       <Routes>
         {!currentUser ? (

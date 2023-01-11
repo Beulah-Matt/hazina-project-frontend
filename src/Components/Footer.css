@@ -1,0 +1,9 @@
+.main-footer{
+    color: white;
+    background-color:rgb(28, 70, 110) ;
+    padding-top: 3em;
+    position: relative;
+    width: 100%;
+    display: flex;
+    
+}
