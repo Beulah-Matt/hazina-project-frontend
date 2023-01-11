@@ -7,6 +7,9 @@ import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
 import Stats from "./Components/Stats";
 import About from "./Components/About";
+import CustomerDB from "./Components/customerDashboard/CustomerDB";
+
+
 
 const App = () => {
   // const [currentUser, setCurrentUser] = useState(null);
@@ -37,16 +40,16 @@ const App = () => {
         });
       }
     });
-  }, []);
+  }, [token]);
 
 
   return (
     <div>
-      
         <Navbar />
         <Hero />
         <Stats />
         <About />
+        <CustomerDB />
       <Routes>
         {!currentUser ? (
           <>
