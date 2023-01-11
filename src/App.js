@@ -5,6 +5,8 @@ import Signin from "./Components/Signin";
 import Dashboard from "./Components/Dashboard";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
+import ContactSection from "./Components/ContactSection";
+
 
 const App = () => {
   // const [currentUser, setCurrentUser] = useState(null);
@@ -35,7 +37,7 @@ const App = () => {
         });
       }
     });
-  }, []);
+  }, [token]);
 
 
   return (
@@ -43,6 +45,7 @@ const App = () => {
       
         <Navbar />
         <Hero />
+        <ContactSection/>
       
       <Routes>
         {!currentUser ? (
