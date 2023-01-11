@@ -7,7 +7,7 @@ const Footer =() =>{
         <div className="container">
          <div className="row">
          {/* column1 */}
-         <div className="col">
+         <div class="col">
          <h4>My Account</h4>
          <ul className="list-unstyled">
              <li>Profile</li>
@@ -16,7 +16,7 @@ const Footer =() =>{
          </ul>
          </div>
          {/* column2 */}
-         <div className="col">
+         <div class="col">
          <h4>Company</h4>
          <ul className="list-unstyled">
              <li>About</li>
@@ -25,9 +25,9 @@ const Footer =() =>{
          </ul>
          </div>
          {/* column3 */}
-         <div className="col">
+         <div class="col">
          <h4>FAQs</h4>
-         <ul className="list-unstyled">
+         <ul class="list-unstyled">
              <li>Terms of Services</li>
              <li>Privacy and Policy</li>
              <li>Newsletter</li>
@@ -35,7 +35,7 @@ const Footer =() =>{
          </div>
          </div>
          <hr />
-         <div className="row">
+         <div class="row">
          <p className="col-sm">
           &copy;{new Date().getFullYear()} Hazina |All right reserved | terms of service | privacy
          </p>
