@@ -46,8 +46,7 @@ const App = () => {
       
         <Navbar />
         <Hero />
-        <ContactSection/>
-        <Footer/>
+       
       
       <Routes>
         {!currentUser ? (
@@ -67,6 +66,8 @@ const App = () => {
           element={<Signup setCurrentUser={setCurrentUser} />}
         ></Route>
       </Routes>
+      <ContactSection/>
+        <Footer/>
     </div>
   );
 };
