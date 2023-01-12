@@ -30,7 +30,9 @@ const Footer = () => {
                         <ul className="list">
                             <li>Terms of Services</li>
                             <li>Privacy and Policy</li>
-                            <li>Newsletter</li>
+                            <div class="socialmedia">
+                                <li>Subscribe to our newsletter</li>
+                            </div>
                         </ul>
                     </div>
                 </div>
