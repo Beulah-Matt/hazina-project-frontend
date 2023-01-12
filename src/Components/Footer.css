@@ -1,15 +1,18 @@
 .main-footer{
     color: white;
     background-color:rgb(28, 70, 110) ;
-    padding-top: 3em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     
 }
-#col {
+.col {
 display: flex;
 align-items: flex-end;
+}
+.list{
+    display: flex;
+    flex-direction: row;
+    
+}
+.col{
+    align-items: center;
 }
