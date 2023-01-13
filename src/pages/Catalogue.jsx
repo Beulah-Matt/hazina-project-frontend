@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import StorageList from "./StorageList";
+import StorageList from "../Components/StorageList";
 // import NewStorageForm from "./NewStorageForm";
 // import Search from "./Search";
 
 
-function StoragePage() {
+function Catalogue() {
   const [searchTerm, setSearchTerm] = useState("");
   
   const demoData = [
@@ -52,13 +52,13 @@ function StoragePage() {
   });
 
   return (
-    <main>
+    <div id="catalogue" className="sm:py-[10vh] py-[8vh]">
       {/* <NewStorageForm onAddStorage={handleAddStorage} /> */}
       {/* <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
       <StorageList storages={displayedStorages} />
-    </main>
+    </div>
   );
 }
 
-export default StoragePage;
+export default Catalogue;
 

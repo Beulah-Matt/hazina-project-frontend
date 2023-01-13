@@ -19,7 +19,7 @@ function SingleStorageCard({ storage }) {
         </p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <button className="border-[0px] rounded-full text-main-blue-color primary px-8 py-2 mb-2 text-sm font-semibold bg-custom-gold-color" onClick={handleBooked}>
+        <button className="border-[0px] rounded-full text-main-blue-color primary px-8 py-2 mb-2 text-sm font-semibold bg-custom-gold-color transition duration-300 ease-in-out" onClick={handleBooked}>
           BOOK STORAGE
         </button>
       </div>
