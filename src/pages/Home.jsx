@@ -13,7 +13,7 @@ function Home() {
                 <p className='text-slate-200 text-center'>
                     We leverage technology to help you store <br/>
                     all your items for any duration. <br/>Focus on other important things and <br/> leave the security to us.</p>
-                <button className='py-3 px-8  mt-12 mb-16 sm:px-5'><a href="/catalogue">Explore</a></button>
+                <button className='py-3 px-8  mt-12 mb-16 sm:px-5 transition duration-300 ease-in-out'><a href="/catalogue">Explore</a></button>
             </div>       
         </div>
     </div>
