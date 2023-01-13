@@ -65,7 +65,7 @@ function Contact() {
               </h3>
 
               <form
-                action="https://formspree.io/f/mknandpq"
+                action="https://formspree.io/f/xbjejnwq"
                 method="POST"
               >
                 <div className="mb-6">
