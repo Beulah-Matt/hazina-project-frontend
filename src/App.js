@@ -42,7 +42,6 @@ function App() {
     return (
     <div className="flex flex-col h-screen justify-between">
       <Navbar />
-      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/contact' element={<Contact />} />
@@ -50,7 +49,6 @@ function App() {
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
         </Routes>
-      </BrowserRouter>
       <Footer />
     </div>
   )
