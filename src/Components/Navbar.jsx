@@ -28,7 +28,6 @@ function Navbar() {
                         Home
                     </NavLink>          
                   </li>
-                  {/* <li className='hover:bg-blue-800 transition duration-300 ease-in-out cursor-pointer rounded-xl'><a href="/contact" smooth={true} offset={-200} duration={500}>Contact Us</a></li> */}
                   <li className='hover:bg-blue-800 transition duration-300 ease-in-out cursor-pointer rounded-xl'>
                     <NavLink
                         to="/contact"
