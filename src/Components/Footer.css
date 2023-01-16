@@ -17,23 +17,29 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    padding-left: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: large;
+    block-size: fit-content
 
 }
 .list{
     align-content: space-around;
+  
+
 }
 .col{
     font-weight: bold
+    
 
 }
 .heading{
     padding: 10px;
     font-weight: bolder;
-    font-size: large;
+    font-size: x-large;
 }
 .col-sm{
-    padding-left: 550px;
+    padding-left: 500px;
 }
 @media(max-width: 600px){
     .row, .col, .col-sm{
@@ -43,5 +49,8 @@
         background-color: rgb(28, 70, 110);
     } 
 }
-    
+/* .icon{ */
+    /* height: 70px;
+    width: 50px; */
+/* } */
     
