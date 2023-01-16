@@ -41,7 +41,7 @@ const Signin = ({setCurrentUser}) => {
     <img className="hidden sm:block absolute w-full h-full object-cover"src='https://images.unsplash.com/photo-1624008915317-cb3ad69b16ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RvcmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='/' />
     <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
     <div className='fixed w-full px-4 py-24 z-50'>
-        <div className='max-w-[450px] h-[600px] mx-auto bg-black/75 text-white'>
+        <div className='max-w-[450px] h-[500px] mx-auto bg-black/75 text-white'>
             <div className='max-w-[320px] mx-auto py-16'>
                 <h1 className='text-3xl font-bold'>Sign In</h1>
                 <form onSubmit={handleSubmit} className='w-full flex flex-col py-4'>
@@ -50,7 +50,7 @@ const Signin = ({setCurrentUser}) => {
                     <button className='bg-sky-800 py-3 my-6 rounded font-bold'>Sign In</button>
                     {/* {error ? <p className='p-3 bg-red-400 my-2'>{error}</p> : null} */}
                     <p className='py-8'><span className='text-gray-600'>New to Hazina?  </span>
-                    <Link to="/signup"> Sign Up</Link>
+                    <Link to="/sign-up"> Sign Up</Link>
                     </p>
                 </form>
             </div>

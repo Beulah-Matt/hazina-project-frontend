@@ -58,7 +58,7 @@ const Signup = ({setCurrentUser}) => {
             <img className="hidden sm:block absolute w-full h-full object-cover"src=' https://images.unsplash.com/photo-1624008915317-cb3ad69b16ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RvcmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60 ' alt='/' />
             <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
             <div className='fixed w-full px-4 py-24 z-50'>
-                <div className='max-w-[450px] h-[600px] mx-auto bg-black/75 text-white'>
+                <div className='max-w-[450px] h-[750px] mx-auto bg-black/75 text-white'>
                     <div className='max-w-[320px] mx-auto py-16'>
                         <h1 className='text-3xl font-bold'>Sign Up</h1>
                         <form onSubmit={handleSubmit} className='w-full flex flex-col py-4'>
@@ -70,7 +70,7 @@ const Signup = ({setCurrentUser}) => {
                             <input onChange={handleChange} name="location" className="p-3 my-2 bg-gray-700 rounded" type="text" placeholder="Location"/>
                             <button className='bg-sky-800 py-3 my-6 rounded font-bold'>Sign Up</button>
                             <p className='py-8'><span className='text-blue-300'> Have an Account? </span>{"  "}
-                            <Link to="/login">Login</Link>
+                            <Link to="/sign-in">Login</Link>
                             </p>
                         </form>
                     </div>
