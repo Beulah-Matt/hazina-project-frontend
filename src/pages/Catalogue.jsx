@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Search from "../Components/Search";
 import StorageList from "../Components/StorageList";
 // import NewStorageForm from "./NewStorageForm";
 // import Search from "./Search";
@@ -32,6 +33,7 @@ function Catalogue() {
   ]
   
   const [storages, setStorages] = useState(demoData);
+  const [data, setData] = useState(demoData)
   const baseUrl = "https://storage-data.glitch.me/data"
   
   useEffect(() => {
@@ -53,6 +55,7 @@ function Catalogue() {
 
   return (
     <div id="catalogue" className="sm:py-[10vh] py-[8vh]">
+      <Search data={data} setData={setData} />
       {/* <NewStorageForm onAddStorage={handleAddStorage} /> */}
       {/* <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
       <StorageList storages={displayedStorages} />
