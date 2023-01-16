@@ -1,0 +1,14 @@
+.main-footer{
+    color: white;
+    background-color:rgb(28, 70, 110) ;
+    align-items: center;
+    
+}
+.container{
+    flex-direction: row;
+}
+.row{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
