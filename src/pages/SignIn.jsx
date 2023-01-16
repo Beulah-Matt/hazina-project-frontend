@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Signin = ({setCurrentUser}) => {
+const Signin = ({setLoggedIn}) => {
   const [formData, setFormData] = useState({
     name: "",
     password: "",
@@ -26,8 +26,19 @@ const Signin = ({setCurrentUser}) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          setCurrentUser(user);
-          navigate("/")
+          localStorage.setItem('jwt', user.jwt)
+          fetch("https://localhost:3000/customer_storages", 
+          {
+            headers: {
+              Authorization: `Bearer ${user.jwt}`,
+              'Content-Type': 'application/json',
+            }
+          }).then((res)=> res.json())
+          .then((storages) => {
+            setLoggedIn((prevData)=> ({...prevData, user: {...prevData.user, storages: storages}}))
+          })
+          //setCurrentUser(user);
+          navigate("/catalogue")
         });
       } else {
         res.json().then((errors) => {
