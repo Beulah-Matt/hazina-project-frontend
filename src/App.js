@@ -8,6 +8,7 @@ import SignIn from "./pages/SignIn";
 import Catalogue from "./pages/Catalogue";
 import Footer from "./Components/Footer";
 import Contact from "./pages/Contact";
+import About from "./Components/About";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/catalogue' element={<Catalogue data={data} />} />
           <Route path='/sign-up' element={<SignUp />} />

@@ -7,25 +7,24 @@ const Footer = () => {
                 <div className="row">
                     {/* column1 */}
                     <div className="col">
-                        <h4>My Account</h4>
+                        <h4 className="heading">My Account</h4>
                         <ul className="list">
-                            <li>Profile</li>
-                            <li>Location</li>
-                            <li>Sign Up</li>
+                        <li><a href="/sign-in">Login</a></li>
+                        <li><a href="/sign-up">Signup</a></li>
                         </ul>
                     </div>
                     {/* column2 */}
                     <div className="col">
-                        <h4>Company</h4>
+                        <h4 className="heading">Company</h4>
                         <ul className="list">
-                            <li>About</li>
-                            <li>Product</li>
-                            <li>Contact Us</li>
+                        <li><a href="/about">About</a></li>
+                            <li><a href="/catalogue">Products</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
                         </ul>
                     </div>
                     {/* column3 */}
                     <div className="col">
-                        <h4>FAQs</h4>
+                        <h4 className="heading">FAQs</h4>
                         <ul className="list">
                             <li>Terms of Services</li>
                             <li>Privacy and Policy</li>
@@ -38,7 +37,7 @@ const Footer = () => {
                 <hr />
                 <div className="row">
                     <p className="col-sm">
-                        &copy;{new Date().getFullYear()} Hazina |All right reserved | terms of service | privacy
+                        &copy;{new Date().getFullYear()} Hazina |All right reserved | Terms of service | Privacy
                     </p>
                 </div>
             </div>
