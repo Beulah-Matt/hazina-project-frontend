@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import NewStorageForm from "../Components/NewStorageForm";
 import Search from "../Components/Search";
 import StorageList from "../Components/StorageList";
 // import NewStorageForm from "./NewStorageForm";
@@ -55,8 +56,8 @@ function Catalogue() {
 
   return (
     <div id="catalogue" className="sm:py-[10vh] py-[8vh]">
-      <Search data={data} setData={setData} />
-      {/* <NewStorageForm onAddStorage={handleAddStorage} /> */}
+      {/* <Search data={data} setData={setData} /> */}
+      <NewStorageForm onAddStorage={handleAddStorage} />
       {/* <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
       <StorageList storages={displayedStorages} />
     </div>
