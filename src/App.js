@@ -67,7 +67,6 @@ function App() {
     return (
     <div className="flex flex-col h-screen justify-between">
       <Navbar />
-      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
@@ -76,7 +75,6 @@ function App() {
           <Route path='/sign-up' element={<SignUp setLoggedIn = {setLoggedIn}/>} />
           <Route path='/sign-in' element={<SignIn setLoggedIn={setLoggedIn}/>} />
         </Routes>
-      </BrowserRouter>
       <Footer />
     </div>
   )
