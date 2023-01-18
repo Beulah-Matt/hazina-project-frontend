@@ -1,6 +1,6 @@
 
-import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./Components/Navbar";
 import SignUp from "./pages/SignUp";
@@ -13,31 +13,14 @@ import { useLoggedInContext } from "./context/LoginContext";
 
 
 function App() {
+  
+    const [data, setData] = useState([])
 
-    const data = [
-        {
-          "id": 1,
-          "name": "Storage Bay",
-          "image": "https://ustoreit.ie/wp-content/uploads/2021/11/business-storage.jpg",
-          "price": "434",
-          "description": "this is the description"
-        },
-        {
-          "id": 2,
-          "name": "Storage Bay",
-          "image": "https://ustoreit.ie/wp-content/uploads/2021/11/business-storage.jpg",
-          "price": "434",
-          "description": "this is the description"
-        },
-        {
-          "id": 3,
-          "name": "Storage Bay",
-          "image": "https://ustoreit.ie/wp-content/uploads/2021/11/business-storage.jpg",
-          "price": "434",
-          "description": "this is the description"
-        }
-      ]
-      // const [data, setData] = useState[demoData]
+    useEffect(() => {
+      fetch("https://hazina-backend.up.railway.app/storage_units")
+      .then((res) => res.json())
+      .then((storageUnits) => setData(storageUnits))
+    }, [])
     
 
     //console.log(data)
@@ -47,13 +30,13 @@ function App() {
     const token = localStorage.getItem("jwt");
 
     useEffect(()=> {
-      fetch("http://localhost:3000/me", {
+      fetch("https://hazina-backend.up.railway.app/me", {
         headers: {Authorization: `Bearer ${token}`}
       }).then((res)=>{
         if(res.ok){
           res.json().then((currentUser)=>{
             setLoggedIn(() => ({user: {...currentUser}}))
-            fetch("http://localhost:3000/customer_storages", {
+            fetch("https://hazina-backend.up.railway.app/customer_storages", {
               headers: {Authorization: `Bearer ${token}`}
             }).then((res) => res.json())
             .then((storages) => {
