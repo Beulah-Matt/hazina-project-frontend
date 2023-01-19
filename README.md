@@ -82,7 +82,7 @@ Simply run
  For more resouces you can visit the link below:
  https://rubyonrails.org
 
->>>>>>>> REACT FRONTEND (client)
+>>>> REACT FRONTEND (client)
 
 The react project is to diplay the data from the backend  by fetching.
 For this to occur ensure the rails server is running for it to display data to the frontend part.
@@ -96,6 +96,7 @@ For this to occur ensure the rails server is running for it to display data to t
 ### DEPLOYMENT FRONTEND
 
 I created a new repository on the client(frontend) folder for deployment;
+
     >>> https://hazina-fe.vercel.app/
 
  This is the github url of the repository:-
