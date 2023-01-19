@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import Search from "../components/Search";
 // import { decrement, increment } from './redux/reducers/counterSlice'
 
-
 export default function Storages() {
 
     const dispatch = useDispatch()
@@ -60,7 +59,7 @@ export default function Storages() {
 
     return (
         <>
-        <div id="catalogue" className="sm:py-[10vh] py-[8vh]">
+        <div id="catalogue" className="sm:py-[10vh] py-[8vh] bg-gray-900">
           {/* <Search data={data} setData={setData} /> */}
           {/* <NewStorageForm onAddStorage={handleAddStorage} /> */}
           {/* <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
@@ -77,6 +76,7 @@ export default function Storages() {
                   <option value="Small">Small</option>
                   <option value="Medium">Medium</option>
                   <option value="Large">Large</option>
+                  <option value="Warehouse">Warehouse</option>
               </select>
           </div>
               <div className="cards">

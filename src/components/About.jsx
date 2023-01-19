@@ -1,5 +1,5 @@
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -23,15 +23,15 @@ const About = () => {
             will provide:
           </p>
           <ul className="py-4 pr-8 max-w-md">
-            <li>✔️ Pickup & Delivery Services</li>
             <li>✔️ Small Storage Units (5 × 5)</li>
             <li>✔️ Medium Storage Units (10 × 10)</li>
             <li>✔️ Large Storage Units (10 × 25)</li>
+            <li>✔️ Pickup & Delivery Services</li>
           </ul>
 
           <div>
             <Link
-              to="allstorage"
+              to="/storages"
               smooth
               duration={500}
               className="group text-yellow-50 w-fit px-8 py-3 mt-2 mb-8 flex items-center rounded-md bg-gradient-to-r from-blue-500 to-sky-800 cursor-pointer"

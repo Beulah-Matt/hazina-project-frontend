@@ -1,4 +1,10 @@
 # Hazina Application
+```Group Members```
+1. Beulah Mathenge - Scrum Master and Full Stack Developer
+2. Kevin Kweyu - UI/UX, Frontend Developer, Figma Designs
+3. Dennis Gachomo - Backend Developer
+4. Yego Kipkemoi - Backend Developer 
+5. Gilbert Kipkemoi - Frontend Developer 
        
 ## Ruby on rails backend.
 
@@ -66,18 +72,17 @@
 ## USING THE PROJECT
 
 Simply run 
-  $rails s: then http://localhost:3000 in your browser
-   to specify the what you want to access:
-   you can run:-
-   http://localhost:3000/hazina - to get the whole storage data
-   http://localhost:3000/hazina-api/1 - to get the storage with an id of 1
+  $rails s: then http://localhost:3000 in your browser if you are unable to access the hosted backend 
+   to specify the what you want to access you can run:-
+   `` Index, Create and Show routes for storage units https://hazina-backend.up.railway.app/storage_units
+   `` To get specific a customer's booked storage we can make GET, POST, UPDATE and DELETE requests to https://hazina-backend.up.railway.app/customer_storages
 
 #### Resources:
 
  For more resouces you can visit the link below:
  https://rubyonrails.org
 
->>>>>>>> React frontend (client)
+>>>> REACT FRONTEND (client)
 
 The react project is to diplay the data from the backend  by fetching.
 For this to occur ensure the rails server is running for it to display data to the frontend part.
@@ -91,9 +96,10 @@ For this to occur ensure the rails server is running for it to display data to t
 ### DEPLOYMENT FRONTEND
 
 I created a new repository on the client(frontend) folder for deployment;
-    >>> [https://hazina-fe.vercel.app/](https://hazina-fe.vercel.app/)
 
- This is the deployed url of the repository:-
+    >>> https://hazina-fe.vercel.app/
+
+ This is the github url of the repository:-
         https://github.com/Beulah-Matt/hazina-project-frontend
 
         The rails server must be running in order to see the fetched data on the screen.
@@ -101,6 +107,11 @@ I created a new repository on the client(frontend) folder for deployment;
 
  ### DEPLOYMENT BACKEND
 
- This is my deployed backend url
+ This is my github backend url
     >>> https://github.com/Beulah-Matt/Hazina
 
+
+### Permissions
+We hereby give permission to use the code in this project for both reference and learning purposes. 
+Please reach us from our github profiles
+kevinzepwa, Beulah-Matt, GachomoX, yegobaroni and kipkemoi98
