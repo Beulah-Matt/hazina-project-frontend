@@ -1,75 +1,108 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, {useState} from 'react'
+//import '../css/sign.css'
+import { useNavigate } from 'react-router-dom';
+import { BiLogInCircle } from 'react-icons/bi';
+import { RiAccountCircleFill } from 'react-icons/ri';
 
-const Signin = ({setLoggedIn}) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    password: "",
-  });
-  let navigate = useNavigate()
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("https://hazina-backend.up.railway.app/login", {
+export default function SignIn() {
+  const navigate= useNavigate()
+  
+  const [email, setEmail]=useState()
+  const [password, setPassword]=useState()
+  const [isLoading, setIsLoading]=useState(false)
+
+  const User = {
+    email,
+    password
+  }
+
+  console.log(User)
+
+  function handleSubmit(e){
+     e.preventDefault()
+     setIsLoading(true)
+     fetch('http://localhost:4000',{
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-    Accept: "application/json",
+        "Content-Type":"application/json"
       },
-      body: JSON.stringify(formData),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          localStorage.setItem('jwt', user.jwt)
-          fetch("https://hazina-backend.up.railway.app/customer_storages", 
-          {
-            headers: {
-              Authorization: `Bearer ${user.jwt}`,
-              'Content-Type': 'application/json',
-            }
-          }).then((res)=> res.json())
-          .then((storages) => {
-            console.log(storages)
-            setLoggedIn((prevData)=> ({...prevData, user: {...prevData.user, storages: storages}}))
-          })
-         
-          navigate("/catalogue")
-        });
-      } else {
-        res.json().then((errors) => {
-          console.error(errors);
-        });
-      }e.target.reset();
-    }) 
-  };
-   return (
-    <div className='w-full h-screen'>
-    <img className="hidden sm:block absolute w-full h-full object-cover"src='https://images.unsplash.com/photo-1624008915317-cb3ad69b16ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RvcmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='/' />
-    <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
-    <div className='fixed w-full px-4 py-24 z-50'>
-        <div className='max-w-[450px] h-[500px] mx-auto bg-black/75 text-white'>
-            <div className='max-w-[320px] mx-auto py-16'>
-                <h1 className='text-3xl font-bold'>Sign In</h1>
-                <form onSubmit={handleSubmit} className='w-full flex flex-col py-4'>
-                    <input onChange={handleChange} className="p-3 my-2 bg-gray-700 rounded" type="text" placeholder='name' autoComplete='name' name='name' value={formData.name}/>
-                    <input onChange={handleChange} className="p-3 my-2 bg-gray-700 rounded" type="password"  placeholder="Password" autoComplete='current-password' name='password' value={formData.password}/>
-                    <button className='bg-sky-800 py-3 my-6 rounded font-bold'>Sign In</button>
-                    {/* {error ? <p className='p-3 bg-red-400 my-2'>{error}</p> : null} */}
-                    <p className='py-8'><span className='text-gray-600'>New to Hazina?  </span>
-                    <Link to="/sign-up"> Sign Up</Link>
-                    </p>
-                </form>
-            </div>
+      body: JSON.stringify(User)
+     }).then(response =>response.json())
+  }
+
+  return (
+    <>    
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white py-24 mx-5">
+      <div className="flex flex-col bg-gray-300 shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
+        <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">Login To Your Account</div>
+        <button className="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200">
+          <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500"><i className="fab fa-facebook-f"></i></span>
+          <span>Login with Socials</span>
+        </button>
+        <div className="relative mt-10 h-px bg-gray-300">
+          <div className="absolute left-0 top-0 flex justify-center w-full -mt-2">
+            <span className="bg-white px-4 text-xs text-gray-500 uppercase">Or Login With Email</span>
+          </div>
         </div>
+        <div className="mt-10">
+          <form action="#" onSubmit={handleSubmit}>
+            <div className="flex flex-col mb-6">
+              <label for="email" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">E-Mail Address:</label>
+              <div className="relative">
+                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                  <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                  </svg>
+                </div>
+                <input id="email" type="email" name="email" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" onChange={e => setEmail(e.target.value)} />
+              </div>
+            </div>
+            <div className="flex flex-col mb-6">
+              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <div className="relative">
+                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                  <span>
+                    <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
+              </div>
+            </div>
+
+            <div className="flex items-center mb-6 -mt-4">
+              <div className="flex ml-auto">
+                <a href="#" className="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Forgot Your Password?</a>
+              </div>
+            </div>
+
+            <div className="flex w-full">
+              <button type="submit" className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in">
+                <span className="mr-2 uppercase">{isLoading ? "Loading...": "Sign In"}</span>
+                <span>
+                  <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div className="flex justify-center items-center mt-6">
+          <button href="#" target="_blank" className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center bg-transparent border-none" onClick={() => {navigate("/sign-up")}}>
+            <span>
+              <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+              </svg>
+            </span>
+            <span className="ml-2">You don't have an account?</span>
+          </button>
+        </div>
+      </div>
     </div>
-</div>
+    </>
   )
 }
-
-export default Signin
