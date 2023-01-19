@@ -19,35 +19,7 @@ const CheckoutPage = () => {
               method="post"
               action>
               <div className="">
-                <div className="space-x-0 lg:flex lg:space-x-4">
-                  <div className="w-full lg:w-1/2">
-                    <label
-                      for="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500">
-                      First Name
-                    </label>
-                    <input
-                      name="firstName"
-                      type="text"
-                      placeholder="First Name"
-                      className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
-                    />
-                  </div>
-                  <div className="w-full lg:w-1/2 ">
-                    <label
-                      for="firstName"
-                      className="block mb-3 text-sm font-semibold text-gray-500">
-                      Last Name
-                    </label>
-                    <input
-                      name="Last Name"
-                      type="text"
-                      placeholder="Last Name"
-                      className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4">
+                <div className="mt-4 space-x-0 lg:flex lg:space-x-4">
                   <div className="w-full">
                     <label
                       for="Email"
@@ -127,7 +99,7 @@ const CheckoutPage = () => {
                     name="note"
                     className="flex items-center w-full px-4 py-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
                     rows="4"
-                    placeholder="Notes for delivery"></textarea>
+                    placeholder="Any Additional Notes"></textarea>
                 </div>
                 <div className="mt-4">
                   <button className="w-full px-6 py-2 text-white bg-main-blue-color hover:bg-blue-400">

@@ -23,10 +23,10 @@ const About = () => {
             will provide:
           </p>
           <ul className="py-4 pr-8 max-w-md">
-            <li>✔️ Pickup & Delivery Services</li>
             <li>✔️ Small Storage Units (5 × 5)</li>
             <li>✔️ Medium Storage Units (10 × 10)</li>
             <li>✔️ Large Storage Units (10 × 25)</li>
+            <li>✔️ Pickup & Delivery Services</li>
           </ul>
 
           <div>
