@@ -78,7 +78,7 @@ export default function Storages() {
                   <option value="Large">Large</option>
               </select>
           </div>
-              <div className="cards">
+              <div className="cards w-full flex flex-wrap border-gray-100 border-2 justify-center">
             {
               storages.map((product) => <StoragesCard key={
                       product.id

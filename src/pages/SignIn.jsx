@@ -5,31 +5,54 @@ import { BiLogInCircle } from 'react-icons/bi';
 import { RiAccountCircleFill } from 'react-icons/ri';
 
 
-export default function SignIn() {
-  const navigate= useNavigate()
-  
-  const [email, setEmail]=useState()
-  const [password, setPassword]=useState()
+const Signin = ({setLoggedIn}) => {
   const [isLoading, setIsLoading]=useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    password: "",
+  });
+  let navigate = useNavigate()
 
-  const User = {
-    email,
-    password
-  }
-
-  console.log(User)
-
-  function handleSubmit(e){
-     e.preventDefault()
-     setIsLoading(true)
-     fetch('http://localhost:4000',{
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("https://hazina-backend.up.railway.app/login", {
       method: "POST",
       headers: {
-        "Content-Type":"application/json"
+        "Content-Type": "application/json",
+    Accept: "application/json",
       },
-      body: JSON.stringify(User)
-     }).then(response =>response.json())
-  }
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          localStorage.setItem('jwt', user.jwt)
+          fetch("https://hazina-backend.up.railway.app/customer_storages", 
+          {
+            headers: {
+              Authorization: `Bearer ${user.jwt}`,
+              'Content-Type': 'application/json',
+            }
+          }).then((res)=> res.json())
+          .then((storages) => {
+            console.log(storages)
+            setLoggedIn((prevData)=> ({...prevData, user: {...prevData.user, storages: storages}}))
+          })
+         
+          navigate("/customers")
+        });
+      } else {
+        res.json().then((errors) => {
+          console.error(errors);
+        });
+      }e.target.reset();
+    }) 
+  };
 
   return (
     <>    
@@ -55,7 +78,7 @@ export default function SignIn() {
                     <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                   </svg>
                 </div>
-                <input id="email" type="email" name="email" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" onChange={e => setEmail(e.target.value)} />
+                <input id="name" type="text" name="email"  value={formData.name} className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address"  onChange={handleChange} />
               </div>
             </div>
             <div className="flex flex-col mb-6">
@@ -69,7 +92,7 @@ export default function SignIn() {
                   </span>
                 </div>
 
-                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
+                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={handleChange} disabled={isLoading} autoComplete='current-password' />
               </div>
             </div>
 
@@ -106,3 +129,7 @@ export default function SignIn() {
     </>
   )
 }
+
+export default Signin
+
+
