@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import Search from "../components/Search";
 // import { decrement, increment } from './redux/reducers/counterSlice'
 
-
 export default function Storages() {
 
     const dispatch = useDispatch()

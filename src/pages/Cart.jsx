@@ -54,7 +54,7 @@ export default function Cart() {
                 <div className="border-t mt-8">
                   <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                     <span>Total cost</span>
-                    {console.log(">>>.", cart)}
+                    {/*console.log(">>>.", cart)*/}
                     <span>Ksh. {total}</span>
                   </div>
                   <button className="bg-main-blue-color font-semibold hover:bg-white py-3 text-sm text-white uppercase w-full"><Link to="/checkoutpage">Checkout</Link></button>
