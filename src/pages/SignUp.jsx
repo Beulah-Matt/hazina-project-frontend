@@ -2,40 +2,57 @@ import React, {useState} from 'react'
 //import '../css/sign.css'
 import { useNavigate } from 'react-router-dom';
 import { BiLogInCircle } from 'react-icons/bi';
-import { RiUserAddFill } from 'react-icons/ri';
 
-
-
-function SignUp() {
-  const navigate= useNavigate()
+function SignUp({setCurrentUser}) {
   const [name, setName]=useState()
-  const [email, setEmail]=useState()
-  const [address, setAddress]=useState()
-  const [password, setPassword]=useState()
   const [isLoading, setIsLoading]=useState(false)
+  const [formData, setFormData] = useState({
+    name: "", 
+    email: "", 
+    password: "", 
+    phone_no: "",
+    photo_url: "",
+    location: ""
+})
 
-  const User = {
-    name,
-    email,
-    address,
-    password
-  }
+let navigate = useNavigate()
 
+const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
+// Make a post request for signup here
 
-  function handleSubmit(e){
-     e.preventDefault()
-     setIsLoading(true)
-     fetch('http://localhost:5000',{
-      method: "POST",
-      headers: {
-        "Content-Type":"application/json"
-      },
-      body: JSON.stringify(User)
-     }).then(response =>response.json())
-  }
+const handleSubmit = async (e) => {
+    e.preventDefault()
 
-  console.log(User)
+    const userCreds = {...formData};
+
+    fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userCreds),
+    }).then((res)=> {
+        if (res.ok){
+            res.json().then((data) => {
+                localStorage.setItem("jwt", data.jwt)  
+                setCurrentUser({user: data.user});
+                navigate("/dashboard")
+            })
+        }else{
+            res.json().then((errors) => {
+                console.log(errors);
+            })
+        }
+        e.target.reset()
+    })
+
+}
 
   return (
     <div className="md:pt-8">
@@ -52,7 +69,7 @@ function SignUp() {
                     <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                   </svg>
                 </div>
-                <input id="username" type="text" name="username" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Username" onChange={e => setName(e.target.value)} />
+                <input id="username" type="text" name="name" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Username" onChange={handleChange} />
               </div>
             </div>
             <div className="flex flex-col mb-6">
@@ -63,7 +80,7 @@ function SignUp() {
                     <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                   </svg>
                 </div>
-                <input id="email" type="email" name="email" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" onChange={e => setEmail(e.target.value)} />
+                <input id="email" type="email" name="email" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" onChange={handleChange} />
               </div>
             </div>
             <div className="flex flex-col mb-6">
@@ -77,7 +94,7 @@ function SignUp() {
                   </span>
                 </div>
 
-                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
+                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={handleChange} disabled={isLoading} autoComplete='current-password' />
               </div>
             </div>
             <div className="flex flex-col mb-6">
@@ -91,7 +108,49 @@ function SignUp() {
                   </span>
                 </div>
 
-                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Re-enter password" required onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
+                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={handleChange} disabled={isLoading} autoComplete='current-password' />
+              </div>
+            </div>
+            <div className="flex flex-col mb-6">
+              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <div className="relative">
+                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                  <span>
+                    <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <input id="phone_no" type="number" name="phone_no" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Phone no" required onChange={handleChange} />
+              </div>
+            </div>
+            <div className="flex flex-col mb-6">
+              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <div className="relative">
+                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                  <span>
+                    <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <input id="location" type="text" name="location" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Location" required onChange={handleChange} />
+              </div>
+            </div>
+            <div className="flex flex-col mb-6">
+              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <div className="relative">
+                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                  <span>
+                    <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <input id="photo_url" type="text" name="photo_url" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Avatar" required onChange={handleChange} />
               </div>
             </div>
 
@@ -111,6 +170,7 @@ function SignUp() {
                 </span>
               </button>
             </div>
+            
           </form>
         </div>
         <div className="flex justify-center items-center mt-6">
@@ -130,3 +190,4 @@ function SignUp() {
 }
 
 export default SignUp
+

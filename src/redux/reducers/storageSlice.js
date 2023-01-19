@@ -5,6 +5,7 @@ export const initialState = {
   storages: [],
   allStorages: [],
   total: 0,
+  admins: [],
 };
 
 export const storageSlice = createSlice({
@@ -58,7 +59,8 @@ export const storageSlice = createSlice({
         (currentTotal, item) => currentTotal + item.quantity * item.rental_rate,0);
       state.total = total
     },
-    cartTotal: (state, action) => {
+    allAdmins: (state, action) => {
+      return state.admins
     },
 
     // decrement: (state) => {
@@ -78,6 +80,9 @@ export const {
   addToAllStorages,
   incrementCartItem,
   decrementCartItem,
+  allAdmins,
+  addAdmins,
+  addToAllAdmins
 } = storageSlice.actions;
 
 export default storageSlice.reducer;
