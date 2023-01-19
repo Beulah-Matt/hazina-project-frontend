@@ -29,14 +29,14 @@ export default function Homepage() {
 
     return (
 
-        <div className="hom">
+        <div className="hom bg-gray-900">
             <Hero/>
 
-            <div className='main'>
-              <h1 className='text-bold text-3xl pl-3 pt-10 text-main-blue-color'>EXPLORE POPULAR SPACES</h1>
-               <div className="flex flex-wrap">
+            <div className='main bg-gray-900'>
+              <h1 className='text-bold text-3xl pl-3 pt-10 text-yellow-50'>EXPLORE POPULAR SPACES</h1>
+               <div className="flex flex-wrap ">
                     {
-                    storages ?. slice(0, 3).map((product) => <HomeDisplayCard key={
+                    storages?.slice(0, 4).map((product) => <HomeDisplayCard key={
                             product.id
                         }
                         product={product}

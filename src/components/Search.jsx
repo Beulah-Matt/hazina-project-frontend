@@ -9,15 +9,6 @@ function Search(  ) {
   const {storages, allStorages} = useSelector(state => state.storages)
   const addItemToCard = (product) => dispatch(addToCart(product))
 
-<<<<<<< HEAD:src/Components/Search.jsx
-  useEffect(() => {
-    const filteredStorages = data.filter(data => {
-      const lowerStorage = data.name.toLowerCase()
-      return lowerStorage.includes(searchValue.toLowerCase())
-      })
-      setData(filteredStorages)
-  }, []);
-=======
   const handleSearchChange = (e) => {
     const { value } = e.target
     const lowerValue = value.toLowerCase()
@@ -26,7 +17,6 @@ function Search(  ) {
     })
     dispatch(addToStorages(filteredStorages))
 }
->>>>>>> 98ce9ec969a2ca92c96f7af1fad67498a4775422:src/components/Search.jsx
 
 
   return (

@@ -3,6 +3,7 @@
     background-color:rgb(28, 70, 110) ;
     /* align-items: center; */
     height: 350px;
+    padding-left: 200px;
     
 }
 .container{
@@ -25,7 +26,7 @@
 }
 .list{
     align-content: space-around;
-  
+    padding: auto;
 
 }
 .col{
