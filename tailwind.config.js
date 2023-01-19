@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'main-blue-color': 'rgba(28,77,122,0.9)',
+        'sth' : 'gradient-to-tr from-blue-200 to-sky-600',
         'custom-gold-color': 'rgba(248, 197,0,1)',
       },
       animation: {

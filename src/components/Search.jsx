@@ -1,21 +1,23 @@
+import { addToCart, addToStorages } from "../redux/reducers/storageSlice";
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 
-function Search( { data, setData } ) {
-  const [ searchValue, setSearchValue ] = useState("")
+function Search(  ) {
+  
 
-  // const initData = data
+  const dispatch = useDispatch()
+  const {storages, allStorages} = useSelector(state => state.storages)
+  const addItemToCard = (product) => dispatch(addToCart(product))
 
-  useEffect(() => {
-    const filteredStorages = data.filter(data => {
-      const lowerStorage = data.name.toLowerCase()
-      return lowerStorage.includes(searchValue.toLowerCase())
-      })
-      setData(filteredStorages)
-  });
+  const handleSearchChange = (e) => {
+    const { value } = e.target
+    const lowerValue = value.toLowerCase()
+    let filteredStorages = allStorages.filter(storage => {
+      return storage.location.toLowerCase().includes(lowerValue)
+    })
+    dispatch(addToStorages(filteredStorages))
+}
 
-  const onChange = (e) => setSearchValue(e.target.value)
-
-//   console.log(data)
 
   return (
     <div className="flex w-screen items-center justify-center mt-5">
@@ -23,9 +25,9 @@ function Search( { data, setData } ) {
         <div className="flex border-gray-200 border-[1px] border-rounded rounded-lg">
           <input
               type="text"
-              value={searchValue}
               placeholder="Search for a storage"
-              onChange={onChange}
+              id="searchInput"
+              onChange={handleSearchChange}
             />
             <div className="flex w-10 border-[1px] items-center ml-[1px] justify-center rounded-tr-lg rounded-br-lg border-r border-gray-200 bg-white p-5">
             <svg viewBox="0 0 20 20" aria-hidden="true" className="pointer-events-none absolute w-5 fill-main-blue-color transition">

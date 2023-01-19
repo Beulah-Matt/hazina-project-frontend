@@ -1,124 +1,220 @@
-.App {
-  text-align: center;
+html{
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    margin:0;
+    padding:0;
+    scroll-snap-type: y mandatory;
+}
+.app{
+    background-color: #fff;
+}
+.root-layout{
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.root-layout nav{
+    background-color:rgb(28, 66, 94);
+    padding: 5PX;
+    display: flex; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.root-layout nav a img{
+    width: 200px;
+    height: 80px;
+    float: left;
+    padding: 0;
+
 }
 
-.App-link {
-  color: #61dafb;
+.filterfield{
+    margin: auto;
+    margin-top: 10px;
+    align-content: center;
+   }
+
+.filterfield input {
+    caret-color: rgb(218, 20, 20); 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+#searchInput{
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    font-family: monospace;
+    color:rgb(212, 120, 120);
+    padding: 12px 20px 12px 40px;
+    border: 2px solid rgb(212, 120, 120);
+}
+#searchInput:focus{
+    outline: 1px solid rgb(233, 17, 17);
 }
 
-/**************/
-.new-plant-form {
-  padding: 2rem 1rem;
-  margin: 2rem 0;
-  background-color: rgba(181, 250, 181, 0.5);
+.thepages{
+    margin-top:30px;
+    margin-left: auto;
+    margin-right: 0;
+}
+.thepages a{
+   text-decoration: none;
+   color: #fff;
+   font-family:'Courier New', Courier, monospace;
+   font-weight: bold;
+   padding: 10px;
 }
 
-.new-storage-form form {
-  display: flex;
-  justify-content: center;
+.thepages a:hover{
+    color: rgb(219, 192, 192);
 }
 
-.new-storage-form input {
-  margin-right: 2rem;
-  flex: 1;
+.thepages a.active{
+    color: rgb(212, 120, 120);
 }
 
-.new-storage-form button {
-  width: 150px;
+#cart span:nth-child(1){
+  font-size: 17px;
 }
 
-.searchbar {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+#cart span:nth-child(2){
+    padding: 0 3px;
+    font-weight: bold;
+    border-radius: 5px;
+    color:#fff;
+    background-color: rgb(212, 120, 120);
+    position: relative;
+    top: -15px;
 }
 
-label {
-  font-weight: bold;
-  display: block;
+.slider{
+   position: absolute; 
 }
 
-input {
-  padding: 0.25rem;
-  border: none;
-  font-family: inherit;
-  font-size: 1.2em;
-  border-bottom: 2px solid gray;
-  transition: all 0.2s;
-  width: 100%;
+.main{
+    margin-top: -100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #fff;
+    border-radius: 12px;
 }
 
-input:focus {
-  outline: none;
-  border-bottom: 2px solid var(--green);
+.homeh1{
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 0.3rem;
+    color: rgb(28, 66, 94);
+    margin-left: 12px;
 }
 
-.cards {
-  list-style: none;
-}
-
-.card {
-  margin: 1rem;
-}
-
-.card img {
-  width: 100%;
-}
-
-.card button {
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .cards {
+.trendy{
     display: flex;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    width: calc(33% - 2rem);
-  }
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
-@media (min-width: 1024px) {
-  .card {
-    width: calc(25% - 2rem);
+.homecolumn {
+    float: left;
+    width: 20%;
+    margin:auto;
   }
+
+  .homecard{
+    width: 100%;
+    box-shadow: 0 1px 7px 0 rgba(28, 26, 26, 0.2);
+    padding: 10px;
+    text-align: center;
+    font-family: arial;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+  
+.homecard:hover{
+    outline:1px solid rgb(212, 120, 120);
+  }
+
+.branding1{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(212, 120, 120);
 }
 
-@media (min-width: 1200px) {
-  .card {
-    width: calc(20% - 2rem);
-  }
+.branding1 h5{
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    margin: 10px;
+}
+
+.branding1 img{
+    width: 70%;
+    height:50px;
+}
+
+.branding1 button{
+    width: 100px;
+    font-size: 11px;
+    margin: 5px;
+    background-color: #3093c7;
+    color: #ffffff;
+    border: 1px solid #25729a;
+    cursor: pointer;
+}
+
+.bythecategory{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.thecategories{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.c1{
+    margin: 5px;
+    padding:3px;
+    border-radius: 20px;
+}
+
+.c1 img{
+    width: 300px;
+    height: 250px;
+    cursor: pointer;
+}
+
+.c1 img:hover{
+    width: 270px;
+    height: 200px;
+}
+
+
+
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.info p{
+    background-color: #fff;
+}
+
+.info-details{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
+.im{
+    margin-top: 15px;
 }

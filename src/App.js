@@ -1,57 +1,67 @@
+//import './App.css';
+import {createBrowserRouter, 
+   Route, 
+   createRoutesFromElements,
+   RouterProvider} from 'react-router-dom'
+   //pages
+import Homepage from './pages/Homepage';
+import Storages from './pages/Storages';
+import SingleProduct from './pages/SingleProduct';
+import NewProduct from './pages/admin/NewProduct';
+import Clients from './pages/admin/Clients';
+import CheckoutPage from './pages/Checkoutpage';
+import DisplayStorages from './pages/admin/DisplayStorages';
+import Orders from './pages/admin/Orders';
+import Cart from './pages/Cart';
+import NotFound from './pages/NotFound';
 
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Navbar from "./Components/Navbar";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import Catalogue from "./pages/Catalogue";
-import Footer from "./Components/Footer";
-import Contact from "./pages/Contact";
+//layout
+import RootLayout from './layouts/RootLayout';
+import AdminLayout from './layouts/AdminLayout';
+import Footer from './layouts/Footer'
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Contact from './pages/Contact';
+import Thankyou from './pages/Thankyou';
+import Admins from './pages/admin/Admins';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+    <Route path='/' element={<RootLayout/>}>
+    <Route index element={<Homepage />} />
+    <Route path='sign-up' element={<SignUp />} />
+    <Route path='sign-in' element={<SignIn />} />
+    <Route path='contact' element={<Contact />} />
+    <Route path='storages' element={<Storages />} />
+    <Route path='singleproduct' element={<SingleProduct />} />
+    <Route path='cart' element={<Cart />} />
+    <Route path='checkoutpage' element={<CheckoutPage />} />
+    <Route path='thankyou' element={<Thankyou />} />
+  
+    <Route path='admin' element={<AdminLayout />}>
+       <Route path='displaystorages' element={<DisplayStorages />} />
+       <Route path='newproduct' element={<NewProduct />} />
+       <Route path='orders' element={<Orders />} />       
+       <Route path='clients' element={<Clients/>} />
+       <Route path='admins' element={<Admins/>} />
+      </Route>
+
+        {/* error page */}
+    <Route path='*' element={<NotFound />} />
+  </Route>
+  </>
+  )
+)
+
 
 function App() {
-
-    const data = [
-        {
-          "id": 1,
-          "name": "Storage Bay",
-          "image": "https://ustoreit.ie/wp-content/uploads/2021/11/business-storage.jpg",
-          "price": "434",
-          "description": "this is the description"
-        },
-        {
-          "id": 2,
-          "name": "Storage Bay",
-          "image": "https://ustoreit.ie/wp-content/uploads/2021/11/business-storage.jpg",
-          "price": "434",
-          "description": "this is the description"
-        },
-        {
-          "id": 3,
-          "name": "Storage Bay",
-          "image": "https://ustoreit.ie/wp-content/uploads/2021/11/business-storage.jpg",
-          "price": "434",
-          "description": "this is the description"
-        }
-      ]
-      // const [data, setData] = useState[demoData]
-    
-
-    console.log(data)
-
-    return (
+  return (
     <div className="flex flex-col h-screen justify-between">
-      <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/catalogue' element={<Catalogue data={data} />} />
-          <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/sign-in' element={<SignIn />} />
-        </Routes>
+      <RouterProvider router={router}/>
       <Footer />
     </div>
-  )
+  );
 }
 
 export default App;
