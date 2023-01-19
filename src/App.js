@@ -44,7 +44,7 @@ const router = createBrowserRouter(
        <Route path='newproduct' element={<NewProduct />} />
        <Route path='orders' element={<Orders />} />       
        <Route path='clients' element={<Clients/>} />
-       <Route path='admins' element={<Admins/>} />
+       <Route path='admin' element={<Admins />} />
       </Route>
 
         {/* error page */}

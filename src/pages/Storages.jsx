@@ -1,6 +1,6 @@
+import {useState, useEffect} from 'react'
 import { addToCart, addToAllStorages, addToStorages, removeFromCart } from "../redux/reducers/storageSlice";
 import StoragesCard from "../components/storagesCard";
-import {useState, useEffect} from 'react'
 import axios from 'axios'
 //import '../css/storages.css'
 
