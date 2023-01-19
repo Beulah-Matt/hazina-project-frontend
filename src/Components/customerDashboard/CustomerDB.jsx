@@ -12,10 +12,15 @@ import { DateRange } from "react-date-range";
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 
 const CustomerDB = () => {
+
+  const [openDate, setOpenDate] = useState(false);;
+  const [option, setOption] = useState({ unit: 1});
+  const [openOptions, setOpenOptions] = useState(false);
+  const [storageType, setStorageType] = useState("")
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -24,17 +29,11 @@ const CustomerDB = () => {
     },
   ]);
 
-  const [openDate, setOpenDate] = useState(false);
-  // //const navigate = useNavigate;
+  const navigate = useNavigate;
 
-  // // const handleSearch = () => {
-  // //   navigate("/dashboard");
-  // // };
-
-  const [option, setOption] = useState({
-    unit: 1,
-  });
-  const [openOptions, setOpenOptions] = useState(false);
+  const handleSearch = () => {
+    navigate("/dashboard", {state: {} });
+  }
 
   const handleOption = (name, operation) => {
     setOption((prev) => {
@@ -44,6 +43,7 @@ const CustomerDB = () => {
       };
     });
   };
+
 
   return (
     <div
@@ -75,6 +75,7 @@ const CustomerDB = () => {
               type="text"
               placeholder="Type of Storage"
               className="headerSearchInput"
+              onChange={(e) => setStorageType(e.target.value)}
             />
           </div>
           <div  className="headerSearchItem">
@@ -82,15 +83,16 @@ const CustomerDB = () => {
             <span
               onClick={() => setOpenDate(!openDate)}
               className="headerSearchText"
-            >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+            >{`${format(date[0].startDate, "yyyy/mm/dd")} to ${format(
               date[0].endDate,
-              "MM/dd/yyyy"
+              "yyyy/mm/dd"
             )}`}</span>
             {openDate && (
               <DateRange
                 editableDateInputs={true}
                 onChange={(item) => setDate([item.selection])}
                 moveRangeOnFirstSelection={false}
+                minDate={new Date()}
                 ranges={date}
                 className="date"
               />
@@ -135,6 +137,7 @@ const CustomerDB = () => {
           </div>
           <div  className="headerSearchItem">
             <button
+              onClick={handleSearch}
               className="headerBtn"
             >
               Search

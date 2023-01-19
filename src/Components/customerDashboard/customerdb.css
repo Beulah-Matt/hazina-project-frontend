@@ -1,9 +1,10 @@
 .header{
-    background-color: rgb(7 89 133);
+    background-color: rgb(28, 70, 110);
     color: white;
     display: flex;
     justify-content: center;
     position: relative;
+    padding-top: 80px;
 }
 .headerContainer{
     width: 100%;

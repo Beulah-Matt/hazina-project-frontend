@@ -34,11 +34,11 @@ body {
   }
   .signupBtn {
       @apply  text-white border border-white
-      hover:bg-white hover:text-main-blue-color rounded-md 
+      hover:bg-white hover:text-main-blue-color transition duration-300 ease-in-out rounded-md 
   }
   .signinBtn {
-    @apply  text-main-blue-color border border-main-blue-color bg-white
-    hover:bg-main-blue-color hover:text-white hover:border-white rounded-md 
+    @apply  text-main-blue-color border border-white bg-white
+    hover:bg-custom-gold-color hover:border-custom-gold-color transition duration-300 ease-in-out rounded-md 
 }
   * {
       /* @apply font-sans md:font-display */
