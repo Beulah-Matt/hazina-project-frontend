@@ -91,7 +91,7 @@ For this to occur ensure the rails server is running for it to display data to t
 ### DEPLOYMENT FRONTEND
 
 I created a new repository on the client(frontend) folder for deployment;
-    >>> [https://hazina.vercel.app/](https://hazina-fe.vercel.app/)
+    >>> [https://hazina-fe.vercel.app/](https://hazina-fe.vercel.app/)
 
  This is the deployed url of the repository:-
         https://github.com/Beulah-Matt/hazina-project-frontend
