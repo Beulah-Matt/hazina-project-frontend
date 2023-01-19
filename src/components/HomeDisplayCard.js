@@ -4,9 +4,11 @@ import React from 'react';
 function HomeDisplayCard({product, addToCart}) {
     return (
         <>
-        <div className="w-1/3 p-2">
-            <div className="max-w-sm rounded overflow-hidden shadow-lg">
-              <img className="w-full" src={product.photo_url} alt={product.name} />
+        <div className="w-(1/3) p-2">
+            <div className="max-w-sm h-[99%] rounded overflow-hidden shadow-lg">
+              <div className="h-[69%]">
+                <img className="w-full h-full" src={product.photo_url} alt={product.name} />
+              </div>
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">
                     {product.name}
