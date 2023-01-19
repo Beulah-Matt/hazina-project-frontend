@@ -1,6 +1,6 @@
+import {useState, useEffect} from 'react'
 import { addToCart, addToAllStorages, addToStorages, removeFromCart } from "../redux/reducers/storageSlice";
 import StoragesCard from "../components/storagesCard";
-import {useState, useEffect} from 'react'
 import axios from 'axios'
 //import '../css/storages.css'
 
@@ -79,7 +79,7 @@ export default function Storages() {
                   <option value="Warehouse">Warehouse</option>
               </select>
           </div>
-              <div className="cards">
+              <div className="cards w-full flex flex-wrap border-gray-100 border-2 justify-center">
             {
               storages.map((product) => <StoragesCard key={
                       product.id
