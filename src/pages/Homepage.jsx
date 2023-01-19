@@ -29,32 +29,35 @@ export default function Homepage() {
   }, []);
   // console.log(storages)
 
-    return (
+  return (
+    <div className="hom bg-gray-900">
+      <Hero />
 
-        <div className="hom bg-gray-900">
-            <Hero/>
-
-            <div className='main bg-gray-900'>
-              <h1 className='text-bold text-3xl pl-3 pt-10 text-yellow-50'>EXPLORE POPULAR SPACES</h1>
-               <div className="flex flex-wrap ">
-                    {
-                    storages?.slice(0, 4).map((product) => <HomeDisplayCard key={
-                            product.id
-                        }
-                        product={product}
-                        addToCart={addItemToCard}/>)
-                } </div>
-            </div>
-            <div className="my-2">
-                <button type='button'
-                className="hover:bg-custom-gold-color cursor-pointer inline-block bg-gray-200 rounded-full py-1 ml-4 text-sm font-semibold text-gray-700 mr-2 mb-4 px-6"
-                    onClick={
-                        () => {
-                            navigate("/storages")
-                        }
-                }>Book a Space
-                </button>
-            </div>
+      <div className="main bg-gray-900">
+        <h1 className="text-bold text-3xl pl-3 pt-10 text-yellow-50">
+          EXPLORE POPULAR SPACES
+        </h1>
+        <div className="flex flex-wrap ">
+          {storages?.slice(0, 4).map((product) => (
+            <HomeDisplayCard
+              key={product.id}
+              product={product}
+              addToCart={addItemToCard}
+            />
+          ))}{" "}
         </div>
-    )
+      </div>
+      <div className="my-2">
+        <button
+          type="button"
+          className="hover:bg-custom-gold-color cursor-pointer inline-block bg-gray-200 rounded-full py-1 ml-4 text-sm font-semibold text-gray-700 mr-2 mb-4 px-6"
+          onClick={() => {
+            navigate("/storages");
+          }}
+        >
+          Book a Space
+        </button>
+      </div>
+    </div>
+  );
 }
