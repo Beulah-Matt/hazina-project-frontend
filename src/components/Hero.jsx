@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import About from './About';
+import Stats from '../pages/Stats'
 
 function Hero() {
 
@@ -18,6 +19,7 @@ function Hero() {
             </div>       
         </div>
     </div>
+    <Stats />
     <About />
     {/*<Catalogue />*/}
     </>
