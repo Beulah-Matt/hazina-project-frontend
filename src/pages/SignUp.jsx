@@ -21,8 +21,6 @@ const Signup = ({setLoggedIn}) => {
         });
       };
 
-    // Make a post request for signup here
-
     const handleSubmit = async (e) => {
         e.preventDefault()
 
