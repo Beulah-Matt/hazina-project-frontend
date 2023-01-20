@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
 
-const Signup = ({setCurrentUser}) => {
+const Signup = ({setLoggedIn}) => {
     const [formData, setFormData] = useState({
         name: "", 
         email: "", 
@@ -28,7 +28,7 @@ const Signup = ({setCurrentUser}) => {
 
         const userCreds = {...formData};
 
-        fetch("http://localhost:3000/signup", {
+        fetch("https://hazina-backend.up.railway.app/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -38,8 +38,8 @@ const Signup = ({setCurrentUser}) => {
             if (res.ok){
                 res.json().then((data) => {
                     localStorage.setItem("jwt", data.jwt)  
-                    setCurrentUser({user: data.user});
-                    navigate("/dashboard")
+                    setLoggedIn({user: data.user});
+                    navigate("/catalogue")
                 })
             }else{
                 res.json().then((errors) => {

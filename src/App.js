@@ -47,13 +47,13 @@ function App() {
     const token = localStorage.getItem("jwt");
 
     useEffect(()=> {
-      fetch("http://localhost:3000/me", {
+      fetch("https://hazina-backend.up.railway.app/me", {
         headers: {Authorization: `Bearer ${token}`}
       }).then((res)=>{
         if(res.ok){
           res.json().then((currentUser)=>{
             setLoggedIn(() => ({user: {...currentUser}}))
-            fetch("http://localhost:3000/customer_storages", {
+            fetch("https://hazina-backend.up.railway.app/customer_storages", {
               headers: {Authorization: `Bearer ${token}`}
             }).then((res) => res.json())
             .then((storages) => {

@@ -11,7 +11,7 @@ function Search( { data, setData } ) {
       return lowerStorage.includes(searchValue.toLowerCase())
       })
       setData(filteredStorages)
-  });
+  }, []);
 
   const onChange = (e) => setSearchValue(e.target.value)
 
