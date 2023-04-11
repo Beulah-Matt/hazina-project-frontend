@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { BiLogInCircle } from 'react-icons/bi';
 
 function SignUp({setCurrentUser}) {
-  const [name, setName]=useState()
+  //const [name, setName]=useState()
   const [isLoading, setIsLoading]=useState(false)
   const [formData, setFormData] = useState({
     name: "", 
@@ -62,7 +62,7 @@ const handleSubmit = async (e) => {
         <div className="mt-10">
           <form action="#" onSubmit={handleSubmit}>
             <div className="flex flex-col mb-6">
-              <label for="fullname" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600" required onChange={e => setName(e.target.value)}>Username</label>
+              <label for="fullname" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600" required onChange={handleChange}>Username</label>
               <div className="relative">
                 <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                   <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,7 +98,7 @@ const handleSubmit = async (e) => {
               </div>
             </div>
             <div className="flex flex-col mb-6">
-              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <label for="phone_no" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Phone Number:</label>
               <div className="relative">
                 <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                   <span>
@@ -108,25 +108,11 @@ const handleSubmit = async (e) => {
                   </span>
                 </div>
 
-                <input id="password" type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" required onChange={handleChange} disabled={isLoading} autoComplete='current-password' />
+                <input id="phone_no" type="number" name="phone_no" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Phone number" required onChange={handleChange} disabled={isLoading} autoComplete='current-password' />
               </div>
             </div>
             <div className="flex flex-col mb-6">
-              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
-                  <span>
-                    <svg className="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                      <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  </span>
-                </div>
-
-                <input id="phone_no" type="number" name="phone_no" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Phone no" required onChange={handleChange} />
-              </div>
-            </div>
-            <div className="flex flex-col mb-6">
-              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <label for="location" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Location:</label>
               <div className="relative">
                 <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                   <span>
@@ -140,7 +126,7 @@ const handleSubmit = async (e) => {
               </div>
             </div>
             <div className="flex flex-col mb-6">
-              <label for="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+              <label for="photo_url" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Avator:</label>
               <div className="relative">
                 <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                   <span>
@@ -150,7 +136,7 @@ const handleSubmit = async (e) => {
                   </span>
                 </div>
 
-                <input id="photo_url" type="text" name="photo_url" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Avatar" required onChange={handleChange} />
+                <input id="photo_url" type="text" name="photo_url" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Avator" required onChange={handleChange} />
               </div>
             </div>
 

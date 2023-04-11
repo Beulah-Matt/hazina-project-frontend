@@ -20,7 +20,7 @@ export default function Homepage() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "https://hazina-backend.up.railway.app/storage_units",
+      url: "http://localhost:3000/storage_units",
     })
       .then((res) => {
         setStorages(res.data);

@@ -21,7 +21,7 @@ const Signin = ({setLoggedIn}) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://hazina-backend.up.railway.app/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const Signin = ({setLoggedIn}) => {
       if (res.ok) {
         res.json().then((user) => {
           localStorage.setItem('jwt', user.jwt)
-          fetch("https://hazina-backend.up.railway.app/customer_storages", 
+          fetch("http://localhost:3000/customer_storages", 
           {
             headers: {
               Authorization: `Bearer ${user.jwt}`,
