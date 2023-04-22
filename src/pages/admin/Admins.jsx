@@ -5,7 +5,7 @@ function Admins() {
   // const {admins} = useSelector(state => state.storages)
 
   const [admins, setAdmins] = useState([]);
-  const baseUrl = "https://hazina-backend.up.railway.app/admins";
+  const baseUrl = "https://localhost:3000/admins";
 
   useEffect(() => {
     fetch(baseUrl)

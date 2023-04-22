@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react'
 import { addToCart, addToAllStorages, addToStorages, removeFromCart } from "../redux/reducers/storageSlice";
-import StoragesCard from "../components/storagesCard";
-import axios from 'axios'
-//import '../css/storages.css'
-
 import { useSelector, useDispatch } from 'react-redux'
+
+import axios from 'axios'
+import StoragesCard from "../components/storagesCard";
+
 import Search from "../components/Search";
 // import { decrement, increment } from './redux/reducers/counterSlice'
 
@@ -45,12 +45,10 @@ export default function Storages() {
         }
         console.log('filteredStorages', allStorages)
         dispatch(addToStorages(filteredStorages))
-        // console.log(">>.........", categories?.[value])
-        //console.log(e.target.value)
     }
 
     useEffect(() => {
-        axios({method: 'GET', url: 'https://hazina-backend.up.railway.app/storage_units'}).then((res) => {
+        axios({method: 'GET', url: 'https://http://localhost:3000/storage_units'}).then((res) => {
             dispatch(addToStorages(res.data))
             dispatch(addToAllStorages(res.data))
         }).catch(err => console.log(err))

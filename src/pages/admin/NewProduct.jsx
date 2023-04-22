@@ -22,7 +22,7 @@ function NewProduct() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://hazina-backend.up.railway.app/storage_units", {
+    fetch("https://localhost:3000/storage_units", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
