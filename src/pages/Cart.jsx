@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 export default function Cart() {
     const dispatch = useDispatch()
     const { cart, total } = useSelector(state => state.storages)
-    // const cart = useSelector(selectCart) ?? []
-    //console.log(cart)
     const removeItemFromCart = (product) => dispatch(removeFromCart(product))
 
     return (
