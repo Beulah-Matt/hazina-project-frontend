@@ -6,7 +6,7 @@ function AdminStorageList() {
   // const {admins} = useSelector(state => state.storages)
 
   const [allStorages, setAllStorages] = useState([]);
-  const baseUrl = "https://hazina-backend.up.railway.app/storage_units";
+  const baseUrl = "https://localhost:3000/storage_units";
 
   useEffect(() => {
     fetch(baseUrl)

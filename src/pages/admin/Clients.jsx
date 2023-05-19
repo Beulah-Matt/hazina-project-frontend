@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function Clients() {
   const [clients, setClients] = useState([]);
-  const baseUrl = "https://hazina-backend.up.railway.app/customers";
+  const baseUrl = "https://localhost:3000/customers";
 
   useEffect(() => {
     fetch(baseUrl)

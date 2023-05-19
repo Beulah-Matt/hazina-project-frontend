@@ -5,6 +5,13 @@
 3. Dennis Gachomo - Backend Developer
 4. Yego Kipkemoi - Backend Developer 
 5. Gilbert Kipkemoi - Frontend Developer 
+
+Here is a video walkthrough for the project:
+
+
+https://user-images.githubusercontent.com/109944021/235605385-76ed52d7-ab57-4c08-b05a-74f9e538d5ad.mp4
+
+
        
 ## Ruby on rails backend.
 
