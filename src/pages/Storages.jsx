@@ -50,7 +50,7 @@ export default function Storages() {
     }
 
     useEffect(() => {
-        axios({method: 'GET', url: 'https://hazina-backend.up.railway.app/storage_units'}).then((res) => {
+        axios({method: 'GET', url: 'http://localhost:3000//storage_units'}).then((res) => {
             dispatch(addToStorages(res.data))
             dispatch(addToAllStorages(res.data))
         }).catch(err => console.log(err))

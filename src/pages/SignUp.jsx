@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
-//import '../css/sign.css'
 import { useNavigate } from 'react-router-dom';
 import { BiLogInCircle } from 'react-icons/bi';
 
 function SignUp({setCurrentUser}) {
-  //const [name, setName]=useState()
+  //const [name, setName]=useState() 
   const [isLoading, setIsLoading]=useState(false)
   const [formData, setFormData] = useState({
     name: "", 
