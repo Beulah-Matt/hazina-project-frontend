@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/109944021/235605385-76ed52d7-ab57-4c08
 ## Ruby on rails backend.
 
 >>The project is Hazina Api Rails backend.
->>The project requrements were as follows:-
+>>The project requirements were as follows:-
     
     >Ruby 2.7.4
     >NodeJS (v16),and npm
@@ -85,7 +85,7 @@ Run
 
 #### Resources:
 
- For more resources you can visit the link below:
+ For more resources, you can visit the link below:
  https://rubyonrails.org
 
 >>>> REACT FRONTEND (client)
